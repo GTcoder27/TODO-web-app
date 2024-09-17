@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="profile.css">
+    <title>Document</title>
+</head>
+<body class="bg-gradient-to-r from-cyan-200 to-blue-400">
+    <div class=" flex p-10 items-left">
+        <a href="/logout" class="rounded-md p-2 font-bold shadow-[0_0_30px_5px_white] inline-block bg-red-500 text-black-400">Logout</a>
+    </div>
+    <div class="w-full min-h-screen p-2 text-black flex flex-col items-center">
+        <div class="flex text-center justify-center items-center">
+            <div class="w-15 h-15 rounded-md">
+                <img class="w-full h-full object-cover" src="./public/images/uploads<%= user.profilepic%>" alt="">
+            </div>
+            <h2 class="text-[35px] font-bold mb-2">Hello <span class=" text-orange-600 "> 😊 <%= user.name %></span> 😊</h2>
+        </div>
+        <h5 class="text-center mt-10">Create a Task.</h5>
+        <form method="post" action="/post" class=" items-center">
+            <textarea class="resize-none bg-transparent border-2 border-zinc-600 rounded-md p-5" placeholder="What to do ?" name="content" ></textarea>
+            <div class="flex justify-center items-center">
+                <input class="px-3 py-2 bg-green-500 rounded-md " type="submit" value="Create New Task">
+            </div>
+        </form>
+        <h3 class="mt-10 text-2xl font-bold">Your Tasks</h3>
+        <div class="posts text-center justify-center items-center text-white m-10 gap-10 flex flex-wrap ">
+            <% user.posts.reverse().forEach(function(post){ %>
+                <div class="post rounded-md h-[150px] w-[200px] bg-zinc-800  hover:shadow-[0_35px_60px_-15px_rgba(255,255,255)] border-[1px] border-zinc-700 text-center">
+                    <p class="m-5"><%= post.content%></p>
+                    <div class="btns flex gap-10 mt-2">
+                        <a class="text-red-200 w-[50%] " href="/edit/<%= post._id%>">Edit</a>
+                        <a class="text-red-500  w-[50%]" href="/delete/<%= post._id%>">Delete</a>
+                    </div> 
+                </div>
+            <% }) %>
+        </div>
+    </div>
+    
+</body>
+</html>
