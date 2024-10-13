@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://localhost:27017/TODO_App");
+mongoose.connect(MONGO_URL);
 
 const userSchema = mongoose.Schema({
     username:String,
