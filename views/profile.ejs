@@ -28,7 +28,7 @@
         <h3 class="mt-10 text-2xl font-bold">Your Tasks</h3>
         <div class="posts text-center justify-center items-center text-white m-10 gap-10 flex flex-wrap ">
             <% user.posts.reverse().forEach(function(post){ %>
-                <div class="post rounded-md h-[150px] w-[200px] bg-zinc-800  hover:shadow-[0_35px_60px_-15px_rgba(255,255,255)] border-[1px] border-zinc-700 text-center">
+                <div class="post rounded-md h-[150px] w-[200px] bg-zinc-800  hover:shadow-[0_35px_60px_-15px_rgba(255,255,255)] border-[1px] border-zinc-700 text-center hover:scale-110 ease-in-out duration-300">
                     <p class="m-5"><%= post.content%></p>
                     <div class="btns flex gap-10 mt-2">
                         <a class="text-red-200 w-[50%] " href="/edit/<%= post._id%>">Edit</a>
